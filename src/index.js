@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 import * as reducers from "./state/reducer";
 import { BrowserRouter as Router } from "react-router-dom";
 
-const monsterReducer = combineReducers({});
+const monsterReducer = combineReducers({reducers});
   
   const store = createStore(
     monsterReducer,
