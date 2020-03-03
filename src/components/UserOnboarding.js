@@ -40,7 +40,7 @@ const UserOnboarding = props => {
             />
             <input
               type="password"
-              name="password"
+              name="password1"
               onChange={handleSignup}
               placeholder="password"
             />
