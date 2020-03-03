@@ -134,17 +134,86 @@ export const StyledOnboarding = styled.div`
     width: 70%;
     height: 70%;
     margin-left: 15%;
-    display:flex;
+    display: flex;
     .signup {
       width: 50%;
       height: 100%;
       border-left: 0.2em solid #42e6a4;
+      h1 {
+        margin: 0;
+        font-weight: normal;
+        padding: 2%;
+        margin-bottom: 5%;
+        margin-left:30%;
+      }
+      form {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        input {
+          width: 50%;
+          background-color: #42240c;
+          padding: 0.5em;
+          border: 0.2em solid #42e6a4;
+          font-family: "Monofett";
+          color: #42e6a4;
+          font-size: 1.5em;
+          text-align: center;
+        }
+        button {
+          width: 58%;
+          background-color: #42e6a4;
+          padding: 0.3em;
+          border: 0.2em solid #42e6a4;
+          font-family: "Monofett";
+          color: #42240c;
+          font-size: 1.5em;
+        }
+      }
     }
     .login {
       width: 50%;
       height: 100%;
       border-left: 0.2em solid #42e6a4;
       border-right: 0.2em solid #42e6a4;
+      h1 {
+        margin: 0;
+        font-weight: normal;
+        padding: 2%;
+        margin-bottom: 5%;
+        margin-left:30%;
+      }
+      form {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        /* margin-top: 8%; */
+        input {
+          width: 50%;
+          background-color: #42240c;
+          padding: 0.5em;
+          border: 0.2em solid #42e6a4;
+          font-family: "Monofett";
+          color: #42e6a4;
+          font-size: 1.5em;
+          text-align: center;
+        }
+        button {
+          width: 58%;
+          background-color: #42e6a4;
+          padding: 0.3em;
+          border: 0.2em solid #42e6a4;
+          font-family: "Monofett";
+          color: #42240c;
+          font-size: 1.5em;
+        }
+      }
     }
   }
 `;
