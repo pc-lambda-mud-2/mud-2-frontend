@@ -40,15 +40,16 @@ const UserOnboarding = props => {
             />
             <input
               type="password"
-              name="password1"
+              name="password"
               onChange={handleSignup}
-              placeholder="password1"
+              placeholder="password"
             />
             <input
+            style={{fontSize:" 1.4em"}}
               type="password"
               name="password2"
               onChange={handleSignup}
-              placeholder="password2"
+              placeholder="confirm password"
             />
             <button onClick={submitSignup}>sign up</button>
           </form>

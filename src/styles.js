@@ -193,7 +193,6 @@ export const StyledOnboarding = styled.div`
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        /* margin-top: 8%; */
         input {
           width: 50%;
           background-color: #42240c;
