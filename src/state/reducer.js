@@ -31,3 +31,19 @@ const initialUser = {
         return state;
     }
   };
+
+  const initializeUser = {
+    initialize: {},
+    errorMsg: {}
+  };
+  
+  export const InitializePlayerReducer = (state = initializeUser, action) => {
+    switch (action.type) {
+      case types.GET_INITIALIZE_PLAYER:
+        return { ...state, initialize: action.payload };
+      case types.INITIALIZE_PLAYER_ERROR:
+        return { ...state, errorMsg: action.payload };
+      default:
+        return state;
+    }
+  };

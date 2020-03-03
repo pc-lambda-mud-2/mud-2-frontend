@@ -249,6 +249,37 @@ export const StyledDashboard = styled.div`
         width: 100%;
         height: 20%;
         border: 0.2em solid #42e6a4;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+          margin: 0;
+          font-weight: normal;
+          padding: 2%;
+        }
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          height: 80%;
+          width: 20%;
+          button {
+            margin-top: 5%;
+            width: 50%;
+            height: 40%;
+            background-color: #42e6a4;
+            font-family: "Monofett";
+            border: none;
+            border-radius: 80%;
+            font-size: 1.8em;
+            color: #42240c;
+          }
+          img {
+            width: 100%;
+            height: 45%;
+          }
+        }
       }
     }
     .rooms-cont {
@@ -261,12 +292,37 @@ export const StyledDashboard = styled.div`
         width: 100%;
         height: 40%;
         border: 0.2em solid #42e6a4;
-        margin-bottom:5%;
+        margin-bottom: 5%;
+        overflow-y: auto;
+        h4 {
+          font-weight: normal;
+          font-size: 1.3em;
+          text-align: center;
+          margin: 0;
+          margin-top: 0.5em;
+        }
+        button {
+          margin-left: 80%;
+        }
+        ol {
+          h1 {
+            margin: 0;
+            font-weight: normal;
+            padding: 2%;
+          }
+        }
       }
       .room-says {
         width: 100%;
         height: 40%;
         border: 0.2em solid #42e6a4;
+        h4 {
+          font-weight: normal;
+          font-size: 1.5em;
+          text-align: center;
+          margin: 0;
+          margin-top: 0.5em;
+        }
       }
     }
   }
