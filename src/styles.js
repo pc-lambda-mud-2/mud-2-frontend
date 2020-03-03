@@ -144,7 +144,7 @@ export const StyledOnboarding = styled.div`
         font-weight: normal;
         padding: 2%;
         margin-bottom: 5%;
-        margin-left:30%;
+        margin-left: 30%;
       }
       form {
         width: 90%;
@@ -184,7 +184,7 @@ export const StyledOnboarding = styled.div`
         font-weight: normal;
         padding: 2%;
         margin-bottom: 5%;
-        margin-left:30%;
+        margin-left: 30%;
       }
       form {
         width: 90%;
@@ -212,6 +212,61 @@ export const StyledOnboarding = styled.div`
           color: #42240c;
           font-size: 1.5em;
         }
+      }
+    }
+  }
+`;
+
+export const StyledDashboard = styled.div`
+  width: 95%;
+  height: 95%;
+  background-color: #42240c;
+  color: #42e6a4;
+  h1 {
+    margin: 0;
+    font-weight: normal;
+    padding: 2%;
+  }
+  .rooms-maps-cont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .map-cont {
+      width: 60%;
+      height: 90%;
+      background-color: #42240c;
+      color: #42e6a4;
+      margin-left: 2%;
+      .map {
+        width: 100%;
+        height: 75%;
+        border: 0.2em solid #42e6a4;
+        margin-bottom: 5%;
+      }
+      .directions {
+        width: 100%;
+        height: 20%;
+        border: 0.2em solid #42e6a4;
+      }
+    }
+    .rooms-cont {
+      width: 35%;
+      height: 90%;
+      background-color: #42240c;
+      color: #42e6a4;
+      margin-left: 2%;
+      .players {
+        width: 100%;
+        height: 40%;
+        border: 0.2em solid #42e6a4;
+        margin-bottom:5%;
+      }
+      .room-says {
+        width: 100%;
+        height: 40%;
+        border: 0.2em solid #42e6a4;
       }
     }
   }
