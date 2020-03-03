@@ -8,13 +8,29 @@ import west from "../imgs/west.svg";
 import east from "../imgs/east.svg";
 
 const Dashboard = props => {
-  const initialUser = props.initializePlayerReducer.initialize;
-  //   let playersData = [];
-  //   playersData =
+    const {initializePlayerReducer,initializePlayer,moveNorth} = props;
+    useEffect(() => {
+      initializePlayer();
+    }, [initializePlayer,initializePlayerReducer.initialize]);
+    const initialUser = initializePlayerReducer.initialize;
   console.log("props from dashboard ===>", initialUser.players);
-  useEffect(() => {
-    props.initializePlayer();
-  }, []);
+
+  const handleMoveNorth = e => {
+    e.preventDefault();
+    moveNorth({ direction: "n" });
+  };
+  const handleMoveSouth = e => {
+    e.preventDefault();
+    moveNorth({ direction: "s" });
+  };
+  const handleMoveEast = e => {
+    e.preventDefault();
+    moveNorth({ direction: "e" });
+  };
+  const handleMoveWest = e => {
+    e.preventDefault();
+    moveNorth({ direction: "w" });
+  };
   return (
     <StyledDashboard>
       <h1>mud game</h1>
@@ -26,19 +42,19 @@ const Dashboard = props => {
               move <br /> directions
             </h1>
             <div>
-              <button>n</button>
+              <button onClick={handleMoveNorth}>n</button>
               <img src={north} alt="arrows" />
             </div>
             <div>
-              <button>s</button>
+              <button onClick={handleMoveSouth}>s</button>
               <img src={south} alt="arrows" />
             </div>
             <div>
-              <button>w</button>
+              <button onClick={handleMoveWest}>w</button>
               <img src={west} alt="arrows" />
             </div>
             <div>
-              <button>e</button>
+              <button onClick={handleMoveEast}>e</button>
               <img src={east} alt="arrows" />
             </div>
           </div>
@@ -58,7 +74,11 @@ const Dashboard = props => {
                 <h4> No players in this room</h4>
               ) : (
                 initialUser.players.map((player, index) => {
-                  return <h1 key={index}>{index+1}. {player}</h1>;
+                  return (
+                    <h1 key={index}>
+                      {index + 1}. {player}
+                    </h1>
+                  );
                 })
               )}
             </ol>

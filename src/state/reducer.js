@@ -47,3 +47,19 @@ const initialUser = {
         return state;
     }
   };
+
+//   const moveNorthInst = {
+//     instructions: {},
+//     errorMsg: {}
+//   };
+  
+  export const moveNorthReducer = (state = initializeUser, action) => {
+    switch (action.type) {
+      case types.MOVE_NORTH:
+        return { ...state, initialize: action.payload };
+      case types.MOVE_NORTH_ERROR:
+        return { ...state, errorMsg: action.payload };
+      default:
+        return state;
+    }
+  };

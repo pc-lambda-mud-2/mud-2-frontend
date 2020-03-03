@@ -306,9 +306,9 @@ export const StyledDashboard = styled.div`
         }
         ol {
           h1 {
-            margin: 0;
+            font-size: 1.3em;
+            font-family: "roboto";
             font-weight: normal;
-            padding: 2%;
           }
         }
       }

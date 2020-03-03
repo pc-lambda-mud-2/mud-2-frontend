@@ -13,7 +13,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 const monsterReducer = combineReducers({
   signUpReducer: reducers.RegisterReducer,
   logInReducer: reducers.LoginReducer,
-  initializePlayerReducer: reducers.InitializePlayerReducer
+  initializePlayerReducer: reducers.InitializePlayerReducer,
+  moveReducer: reducers.moveNorthReducer
 });
 
 const store = createStore(

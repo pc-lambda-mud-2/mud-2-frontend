@@ -2,6 +2,24 @@ import * as types from "./types";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+export const moveNorthError = error => {
+  return { type: types.MOVE_NORTH_ERROR, payload: error.message };
+};
+
+export const moveNorth = directions => dispatch => {
+  console.log("props from move", directions);
+  axiosWithAuth()
+    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", directions)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: types.MOVE_NORTH, payload: res.data });
+    })
+    .catch(error => {
+      console.log(error);
+      dispatch(registrationError(error.message));
+    });
+};
+
 export const initializePlayerError = error => {
   return { type: types.INITIALIZE_PLAYER_ERROR, payload: error.message };
 };
