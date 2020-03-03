@@ -6,7 +6,7 @@ export const StyledApp = styled.div`
   background-color: #42240c;
   font-family: "Monofett";
   color: #42e6a4;
-  overflow-y:auto;
+  overflow-y: auto;
 `;
 
 export const StyledBodyCont = styled.div`
@@ -70,13 +70,13 @@ export const StyledAboutBodyCont = styled.div`
     margin: 0;
     font-weight: normal;
     padding: 2%;
-    margin-bottom:5%;
+    margin-bottom: 5%;
   }
   h2 {
     margin: 0;
     font-weight: normal;
     padding: 2%;
-    font-size:1.5em;
+    font-size: 1.5em;
   }
   .Team {
     width: 95%;
@@ -84,7 +84,7 @@ export const StyledAboutBodyCont = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin:0;
+    margin: 0;
     .team-member {
       width: 38%;
       height: 45%;
@@ -113,6 +113,38 @@ export const StyledAboutBodyCont = styled.div`
           height: 45%;
         }
       }
+    }
+  }
+`;
+
+export const StyledOnboarding = styled.div`
+  width: 95%;
+  height: 95%;
+  background-color: #42240c;
+  color: #42e6a4;
+  h1 {
+    margin: 0;
+    font-weight: normal;
+    padding: 2%;
+    margin-bottom: 5%;
+  }
+  .form-cont {
+    border-bottom: 0.2em solid #42e6a4;
+    border-top: 0.2em solid #42e6a4;
+    width: 70%;
+    height: 70%;
+    margin-left: 15%;
+    display:flex;
+    .signup {
+      width: 50%;
+      height: 100%;
+      border-left: 0.2em solid #42e6a4;
+    }
+    .login {
+      width: 50%;
+      height: 100%;
+      border-left: 0.2em solid #42e6a4;
+      border-right: 0.2em solid #42e6a4;
     }
   }
 `;
