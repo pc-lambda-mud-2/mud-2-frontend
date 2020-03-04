@@ -6,14 +6,29 @@ import north from "../imgs/north.svg";
 import south from "../imgs/south.svg";
 import west from "../imgs/west.svg";
 import east from "../imgs/east.svg";
+import { generateMaze } from "generate-maze";
 
 const Dashboard = props => {
-    const {initializePlayerReducer,initializePlayer,moveNorth} = props;
-    useEffect(() => {
-      initializePlayer();
-    }, [initializePlayer,initializePlayerReducer.initialize]);
-    const initialUser = initializePlayerReducer.initialize;
-  console.log("props from dashboard ===>", initialUser.players);
+  console.log("dashboard ==>", props);
+  const {
+    initializePlayerReducer,
+    initializePlayer,
+    moveNorth,
+    getRooms,
+    roomsReducer
+  } = props;
+  useEffect(() => {
+    getRooms();
+  }, [getRooms]);
+
+  useEffect(() => {
+    initializePlayer();
+  }, []);
+
+  let loadingroom = "[]";
+  const initialUser = initializePlayerReducer.initialize;
+  let  roomsData = roomsReducer?.rooms.rooms || loadingroom;
+  let parsedRooms = JSON.parse(roomsData);
 
   const handleMoveNorth = e => {
     e.preventDefault();

@@ -316,6 +316,7 @@ export const StyledDashboard = styled.div`
         width: 100%;
         height: 40%;
         border: 0.2em solid #42e6a4;
+        overflow-y: auto;
         h4 {
           font-weight: normal;
           font-size: 1.5em;

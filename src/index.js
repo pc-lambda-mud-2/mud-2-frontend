@@ -14,7 +14,8 @@ const monsterReducer = combineReducers({
   signUpReducer: reducers.RegisterReducer,
   logInReducer: reducers.LoginReducer,
   initializePlayerReducer: reducers.InitializePlayerReducer,
-  moveReducer: reducers.moveNorthReducer
+  moveReducer: reducers.moveNorthReducer,
+  roomsReducer: reducers.GetRoomsReducer
 });
 
 const store = createStore(

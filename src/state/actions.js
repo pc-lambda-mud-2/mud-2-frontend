@@ -2,6 +2,24 @@ import * as types from "./types";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+export const getRoomsError = error => {
+  return { type: types.GET_ROOMS_ERROR, payload: error.message };
+};
+
+export const getRooms = () => dispatch => {
+  console.log("props from move",);
+  axiosWithAuth()
+    .get("https://lambda-mud-test.herokuapp.com/api/adv/rooms/")
+    .then(res => {
+      console.log("response from rooms",res);
+      dispatch({ type: types.GET_ROOMS, payload: res.data });
+    })
+    .catch(error => {
+      console.log(error);
+      dispatch(registrationError(error.message));
+    });
+};
+
 export const moveNorthError = error => {
   return { type: types.MOVE_NORTH_ERROR, payload: error.message };
 };
