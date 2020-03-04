@@ -27,8 +27,52 @@ const Dashboard = props => {
 
   let loadingroom = "[]";
   const initialUser = initializePlayerReducer.initialize;
-  let  roomsData = roomsReducer?.rooms.rooms || loadingroom;
+  let roomsData = roomsReducer?.rooms.rooms || loadingroom;
   let parsedRooms = JSON.parse(roomsData);
+  let directions = [];
+  let editedRooms;
+  console.log(parsedRooms);
+  directions = parsedRooms.map((room, index) => {
+    editedRooms = {
+      roomId: room.pk,
+      n_to: room.fields.n_to,
+      s_to: room.fields.s_to,
+      e_to: room.fields.e_to,
+      w_to: room.fields.w_to,
+      x: index + 1,
+      y: 0
+    };
+    return editedRooms;
+  });
+  // let findingwalls= [];
+  directions = directions.map(rooms => {
+    if (rooms.n_to === 0) {
+      rooms.n_to = " 0.1em solid #42e6a4";
+    } else {
+      rooms.n_to = " 0";
+    }
+
+    if (rooms.s_to === 0) {
+      rooms.s_to = `0.1em solid #42e6a4`;
+    } else {
+      rooms.s_to = `0`;
+    }
+
+    if (rooms.e_to === 0) {
+      rooms.e_to = `0.1em solid #42e6a4`;
+    } else {
+      rooms.e_to = `0`;
+    }
+
+    if (rooms.w_to === 0) {
+      rooms.w_to = `0.1em solid #42e6a4`;
+    } else {
+      rooms.w_to = `0`;
+    }
+
+    return rooms;
+  });
+  console.log(parsedRooms, directions);
 
   const handleMoveNorth = e => {
     e.preventDefault();
@@ -51,7 +95,27 @@ const Dashboard = props => {
       <h1>mud game</h1>
       <div className="rooms-maps-cont">
         <div className="map-cont">
-          <div className="map"></div>
+          <div className="map">
+            {directions.map(room => {
+              return (
+                <div
+                  key={room.roomId}
+                  style={{
+                    borderBottom: room.s_to,
+                    borderTop: room.n_to,
+                    borderLeft: room.w_to,
+                    borderRight: room.e_to,
+                    fontSize:"1.5em",
+                    width:"7%",
+                    margin:"1%",
+                    textAlign:"center"
+                  }}
+                >
+                  {room.roomId}
+                </div>
+              );
+            })}
+          </div>
           <div className="directions">
             <h1>
               move <br /> directions
