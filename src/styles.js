@@ -244,13 +244,11 @@ export const StyledDashboard = styled.div`
         height: 75%;
         border: 0.2em solid #42e6a4;
         margin-bottom: 5%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: stretch;
-        align-content: stretch;
-        overflow-y:auto;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(80px, auto);
+        overflow-y: auto;
       }
       .directions {
         width: 100%;
@@ -273,12 +271,12 @@ export const StyledDashboard = styled.div`
           width: 20%;
           button {
             margin-top: 5%;
-            width: 50%;
+            width: 40%;
             height: 40%;
             background-color: #42e6a4;
             font-family: "Monofett";
             border: none;
-            border-radius: 80%;
+            border-radius: 70%;
             font-size: 1.8em;
             color: #42240c;
           }
@@ -334,4 +332,12 @@ export const StyledDashboard = styled.div`
       }
     }
   }
+`;
+
+export const Player = styled.div`
+  width: 30px;
+  height: 30px;
+  background: #fcfcfc;
+  border-radius: 50%;
+  /* position:absolute; */
 `;

@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { StyledDashboard } from "../styles";
+import { StyledDashboard, Player } from "../styles";
 import * as actionCreators from "../state/actions";
 import north from "../imgs/north.svg";
 import south from "../imgs/south.svg";
 import west from "../imgs/west.svg";
 import east from "../imgs/east.svg";
-import { generateMaze } from "generate-maze";
 
 const Dashboard = props => {
   console.log("dashboard ==>", props);
@@ -15,7 +14,8 @@ const Dashboard = props => {
     initializePlayer,
     moveNorth,
     getRooms,
-    roomsReducer
+    roomsReducer,
+    moveReducer
   } = props;
   useEffect(() => {
     getRooms();
@@ -27,13 +27,15 @@ const Dashboard = props => {
 
   let loadingroom = [];
   const initialUser = initializePlayerReducer.initialize;
+  const move = moveReducer.initialize || { description: "", error_msg: "" };
   let roomsData = roomsReducer?.rooms.rooms || loadingroom;
   let parsedRooms = roomsData;
   let directions = [];
   let editedRooms;
-
+  parsedRooms.sort((a, b) =>
+    a.id > b.id ? 1 : a.id === b.id ? (a.size > b.size ? 1 : -1) : -1
+  );
   console.log(parsedRooms);
-  // parsedRooms = parsedRooms.slice(0,100);
   directions = parsedRooms.map((room, index) => {
     editedRooms = {
       roomId: room.id,
@@ -46,7 +48,7 @@ const Dashboard = props => {
     };
     return editedRooms;
   });
-  // let findingwalls= [];
+
   directions = directions.map(rooms => {
     if (rooms.n_to === 0) {
       rooms.n_to = " 0.1em solid #42e6a4";
@@ -74,7 +76,7 @@ const Dashboard = props => {
 
     return rooms;
   });
-  console.log(parsedRooms, directions);
+  console.log("*******!", initialUser, "!!!!!!move", move);
 
   const handleMoveNorth = e => {
     e.preventDefault();
@@ -107,14 +109,11 @@ const Dashboard = props => {
                     borderTop: room.n_to,
                     borderLeft: room.w_to,
                     borderRight: room.e_to,
-                    // fontSize: "1.5em",
-                    width: "7%",
-                    // padding: "1.5%",
-                    margin:'0.5%',
                     textAlign: "center",
-                    fontFamily:"roboto"
+                    fontFamily: "roboto"
                   }}
                 >
+                  {room.roomId}
                 </div>
               );
             })}
@@ -168,6 +167,7 @@ const Dashboard = props => {
           <div className="room-says">
             <h4>Room says:</h4>
             <h4>{initialUser.description}</h4>
+            <h4 style={{color:"white"}}>{move.error_msg}</h4>
           </div>
         </div>
       </div>

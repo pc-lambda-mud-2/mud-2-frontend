@@ -9,7 +9,7 @@ export const getRoomsError = error => {
 export const getRooms = () => dispatch => {
   console.log("props from move",);
   axiosWithAuth()
-    .get("https://mud-2-backend-development.herokuapp.com/api/adv/rooms/")
+    .get("https://mud-2-backend-development-2.herokuapp.com/api/adv/rooms/")
     .then(res => {
       console.log("response from rooms",res);
       dispatch({ type: types.GET_ROOMS, payload: res.data });
@@ -27,9 +27,9 @@ export const moveNorthError = error => {
 export const moveNorth = directions => dispatch => {
   console.log("props from move", directions);
   axiosWithAuth()
-    .post("https://mud-2-backend-development.herokuapp.com/api/adv/move/", directions)
+    .post("https://mud-2-backend-development-2.herokuapp.com/api/adv/move/", directions)
     .then(res => {
-      console.log(res);
+      console.log("response from move",res);
       dispatch({ type: types.MOVE_NORTH, payload: res.data });
     })
     .catch(error => {
@@ -45,7 +45,7 @@ export const initializePlayerError = error => {
 export const initializePlayer = () => dispatch => {
   console.log("props from register");
   axiosWithAuth()
-    .get("https://mud-2-backend-development.herokuapp.com/api/adv/init/")
+    .get("https://mud-2-backend-development-2.herokuapp.com/api/adv/init/")
     .then(res => {
       console.log(res);
       dispatch({ type: types.GET_INITIALIZE_PLAYER, payload: res.data });
@@ -64,7 +64,7 @@ export const postRegister = (userDetails, props) => dispatch => {
   console.log("props from register", userDetails, props);
   axios
     .post(
-      "https://mud-2-backend-development.herokuapp.com/api/registration/",
+      "https://mud-2-backend-development-2.herokuapp.com/api/registration/",
       userDetails
     )
     .then(res => {
@@ -84,7 +84,7 @@ export const LoginError = error => {
 export const postLogin = (userDetails, props) => dispatch => {
   console.log("props from login", userDetails, props);
   axios
-    .post("https://mud-2-backend-development.herokuapp.com/api/login/", userDetails)
+    .post("https://mud-2-backend-development-2.herokuapp.com/api/login/", userDetails)
     .then(res => {
       console.log(res.data.key);
       dispatch({ type: types.POST_LOGIN, payload: res.data });
