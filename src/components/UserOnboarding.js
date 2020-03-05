@@ -12,7 +12,6 @@ const UserOnboarding = props => {
   };
   const submitSignup = e => {
     e.preventDefault();
-    console.log("===>signup", userSignup, props);
     props.postRegister(userSignup, props);
   };
 
@@ -21,7 +20,6 @@ const UserOnboarding = props => {
   };
   const submitLogin = e => {
     e.preventDefault();
-    console.log("===>Login", userLogin, props);
     props.postLogin(userLogin, props);
   };
 
@@ -40,7 +38,7 @@ const UserOnboarding = props => {
             />
             <input
               type="password"
-              name="password"
+              name="password1"
               onChange={handleSignup}
               placeholder="password"
             />

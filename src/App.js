@@ -5,6 +5,7 @@ import {StyledApp} from "./styles";
 import UserOnboarding from "./components/UserOnboarding"
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
+import PrivateRoute from "./utils/privateRoute";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Route exact path="/" component={LandingPage} />
       <Route path="/auth" component={UserOnboarding} />
       <Route path="/about" component={About} />
-      <Route path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/dashboard" component={Dashboard} />
     </StyledApp>
   );
 }
