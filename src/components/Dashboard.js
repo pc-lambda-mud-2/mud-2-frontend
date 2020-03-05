@@ -31,7 +31,7 @@ const Dashboard = props => {
   let parsedRooms = roomsData;
   let directions = [];
   let editedRooms;
-  
+
   console.log(parsedRooms);
   // parsedRooms = parsedRooms.slice(0,100);
   directions = parsedRooms.map((room, index) => {
@@ -107,14 +107,14 @@ const Dashboard = props => {
                     borderTop: room.n_to,
                     borderLeft: room.w_to,
                     borderRight: room.e_to,
-                    fontSize: "1.5em",
+                    // fontSize: "1.5em",
                     width: "7%",
-                    margin: "1%",
+                    // padding: "1.5%",
+                    margin:'0.5%',
                     textAlign: "center",
                     fontFamily:"roboto"
                   }}
                 >
-                  {room.roomId}
                 </div>
               );
             })}
