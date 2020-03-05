@@ -17,13 +17,15 @@ const Dashboard = props => {
     roomsReducer,
     moveReducer
   } = props;
+  let currentRoom;
+
   useEffect(() => {
     getRooms();
   }, [getRooms]);
 
   useEffect(() => {
     initializePlayer();
-  }, []);
+  }, [initializePlayer, currentRoom, initializePlayerReducer]);
 
   let loadingroom = [];
   const initialUser = initializePlayerReducer.initialize;
@@ -76,7 +78,7 @@ const Dashboard = props => {
 
     return rooms;
   });
-  let currentRoom;
+
   currentRoom = parsedRooms.find(room => room.title === initialUser.title);
 
   console.log(
@@ -110,25 +112,24 @@ const Dashboard = props => {
       <div className="rooms-maps-cont">
         <div className="map-cont">
           <div className="map">
-            <>
-              {directions.map(room => {
-                return (
-                  <div
-                    key={room.roomId}
-                    style={{
-                      borderBottom: room.s_to,
-                      borderTop: room.n_to,
-                      borderLeft: room.w_to,
-                      borderRight: room.e_to,
-                      textAlign: "center",
-                      fontFamily: "roboto"
-                    }}
-                  >
-                    {currentRoom.id === room.roomId ? <Player /> : room.roomId}
-                  </div>
-                );
-              })}
-            </>
+            {directions.map(room => {
+              return (
+                <div
+                  key={room.roomId}
+                  style={{
+                    borderBottom: room.s_to,
+                    borderTop: room.n_to,
+                    borderLeft: room.w_to,
+                    borderRight: room.e_to,
+                    textAlign: "center",
+                    fontFamily: "roboto",
+                    color: "#ffffff00"
+                  }}
+                >
+                  {currentRoom.id === room.roomId ? <Player /> : room.roomId}
+                </div>
+              );
+            })}
           </div>
           <div className="directions">
             <h1>
