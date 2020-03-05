@@ -8,7 +8,10 @@ import west from "../imgs/west.svg";
 import east from "../imgs/east.svg";
 
 const Dashboard = props => {
-  console.log("dashboard ==>", props);
+  // keep track of currentRoom, player is in.
+  let currentRoom;
+
+  //destructure props
   const {
     initializePlayerReducer,
     initializePlayer,
@@ -17,16 +20,18 @@ const Dashboard = props => {
     roomsReducer,
     moveReducer
   } = props;
-  let currentRoom;
 
+  //get all rooms from backend
   useEffect(() => {
     getRooms();
-  }, [getRooms]);
+  }, [getRooms,roomsReducer]);
 
+  //initialize player ==> There is a bug here!
   useEffect(() => {
     initializePlayer();
   }, [initializePlayer, currentRoom, initializePlayerReducer]);
 
+  // Could use some refactor
   let loadingroom = [];
   const initialUser = initializePlayerReducer.initialize;
   const move = moveReducer.initialize || { description: "", error_msg: "" };
@@ -34,10 +39,13 @@ const Dashboard = props => {
   let parsedRooms = roomsData;
   let directions = [];
   let editedRooms;
+
+  //sort rooms in ascending order
   parsedRooms.sort((a, b) =>
     a.id > b.id ? 1 : a.id === b.id ? (a.size > b.size ? 1 : -1) : -1
   );
-  console.log(parsedRooms);
+
+  // more refactoring needed
   directions = parsedRooms.map((room, index) => {
     editedRooms = {
       roomId: room.id,
@@ -51,6 +59,7 @@ const Dashboard = props => {
     return editedRooms;
   });
 
+  // set up room borders and pathways
   directions = directions.map(rooms => {
     if (rooms.n_to === 0) {
       rooms.n_to = " 0.1em solid #42e6a4";
@@ -79,17 +88,10 @@ const Dashboard = props => {
     return rooms;
   });
 
+  // find the current room the player is in
   currentRoom = parsedRooms.find(room => room.title === initialUser.title);
 
-  console.log(
-    "*******!",
-    initialUser,
-    "!!!!!!move",
-    move,
-    "%%%%%",
-    currentRoom
-  );
-
+  // game controls functionality
   const handleMoveNorth = e => {
     e.preventDefault();
     moveNorth({ direction: "n" });
@@ -106,6 +108,7 @@ const Dashboard = props => {
     e.preventDefault();
     moveNorth({ direction: "w" });
   };
+
   return (
     <StyledDashboard>
       <h1>mud game</h1>
