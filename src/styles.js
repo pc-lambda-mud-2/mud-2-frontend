@@ -339,5 +339,8 @@ export const Player = styled.div`
   height: 30px;
   background: #fcfcfc;
   border-radius: 50%;
-  /* position:absolute; */
+  position:absolute;
+  margin-left:2%;
+  margin-top:2%;
+
 `;

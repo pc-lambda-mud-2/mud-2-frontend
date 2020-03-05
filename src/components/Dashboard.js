@@ -100,6 +100,8 @@ const Dashboard = props => {
       <div className="rooms-maps-cont">
         <div className="map-cont">
           <div className="map">
+            <>
+            <Player/>
             {directions.map(room => {
               return (
                 <div
@@ -117,6 +119,7 @@ const Dashboard = props => {
                 </div>
               );
             })}
+            </>
           </div>
           <div className="directions">
             <h1>
