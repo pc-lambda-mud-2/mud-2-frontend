@@ -24,7 +24,7 @@ const Dashboard = props => {
   //get all rooms from backend
   useEffect(() => {
     getRooms();
-  }, [getRooms,roomsReducer]);
+  }, [getRooms, roomsReducer]);
 
   //initialize player ==> There is a bug here!
   useEffect(() => {
@@ -160,12 +160,12 @@ const Dashboard = props => {
           <div className="players">
             <h4>Room name: {initialUser.title} </h4>
             <h4>Players in Room:</h4>
-            <button>
+            {/* <button> //chat functionality
               Chat{" "}
               <span aria-label="hand-wave" role="img">
                 👋
               </span>{" "}
-            </button>
+            </button> */}
             <ol>
               {initialUser.players === undefined ? (
                 <h4> No players in this room</h4>
