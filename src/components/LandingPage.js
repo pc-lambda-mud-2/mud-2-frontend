@@ -27,12 +27,11 @@ const LandingPage = () => {
             Rules of the game
           </h2>
           <ul>
-            <li>Intro to Django github repo</li>
-            <li>CS12: Intro to Django: Setup, Models, and Migrations</li>
-            <li>CS12: Intro to Django: GraphQL and Graphene</li>
-            <li>CS12: Intro to Django: REST and Users</li>
-            <li>CS12: Intro to Django: Token Auth, GraphQL Mutations</li>
-            <li>The official documentation</li>
+            <li>You can move through the connected rooms,using the game controls</li>
+            <li>You can see the current players in the room</li>
+            <li>The room will tell you where to go and what items it holds</li>
+            <li>You can see players leaving and entering the room</li>
+            <li>You can talk to other players in the room</li>
           </ul>
         </div>
         <div className="authentication">

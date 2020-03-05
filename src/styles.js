@@ -144,7 +144,7 @@ export const StyledOnboarding = styled.div`
         font-weight: normal;
         padding: 2%;
         margin-bottom: 5%;
-        margin-left:30%;
+        margin-left: 30%;
       }
       form {
         width: 90%;
@@ -184,7 +184,7 @@ export const StyledOnboarding = styled.div`
         font-weight: normal;
         padding: 2%;
         margin-bottom: 5%;
-        margin-left:30%;
+        margin-left: 30%;
       }
       form {
         width: 90%;
@@ -215,4 +215,131 @@ export const StyledOnboarding = styled.div`
       }
     }
   }
+`;
+
+export const StyledDashboard = styled.div`
+  width: 95%;
+  height: 95%;
+  background-color: #42240c;
+  color: #42e6a4;
+  h1 {
+    margin: 0;
+    font-weight: normal;
+    padding: 2%;
+  }
+  .rooms-maps-cont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .map-cont {
+      width: 60%;
+      height: 90%;
+      background-color: #42240c;
+      color: #42e6a4;
+      margin-left: 2%;
+      .map {
+        width: 100%;
+        height: 75%;
+        border: 0.2em solid #42e6a4;
+        margin-bottom: 5%;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: minmax(80px, auto);
+        overflow-y: auto;
+      }
+      .directions {
+        width: 100%;
+        height: 20%;
+        border: 0.2em solid #42e6a4;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+          margin: 0;
+          font-weight: normal;
+          padding: 2%;
+        }
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          height: 80%;
+          width: 20%;
+          button {
+            margin-top: 5%;
+            width: 40%;
+            height: 40%;
+            background-color: #42e6a4;
+            font-family: "Monofett";
+            border: none;
+            border-radius: 70%;
+            font-size: 1.8em;
+            color: #42240c;
+          }
+          img {
+            width: 100%;
+            height: 45%;
+          }
+        }
+      }
+    }
+    .rooms-cont {
+      width: 35%;
+      height: 90%;
+      background-color: #42240c;
+      color: #42e6a4;
+      margin-left: 2%;
+      .players {
+        width: 100%;
+        height: 40%;
+        border: 0.2em solid #42e6a4;
+        margin-bottom: 5%;
+        overflow-y: auto;
+        h4 {
+          font-weight: normal;
+          font-size: 1.3em;
+          text-align: center;
+          margin: 0;
+          margin-top: 0.5em;
+        }
+        button {
+          margin-left: 80%;
+        }
+        ol {
+          h1 {
+            font-size: 1.3em;
+            font-family: "roboto";
+            font-weight: normal;
+          }
+        }
+      }
+      .room-says {
+        width: 100%;
+        height: 40%;
+        border: 0.2em solid #42e6a4;
+        overflow-y: auto;
+        h4 {
+          font-weight: normal;
+          font-size: 1.5em;
+          text-align: center;
+          margin: 0;
+          margin-top: 0.5em;
+        }
+      }
+    }
+  }
+`;
+
+export const Player = styled.div`
+  width: 20px;
+  height: 20px;
+  background: #fcfcfc;
+  border-radius: 50%;
+  margin-left:20%;
+  margin-top: 40%;
+
 `;
