@@ -244,6 +244,13 @@ export const StyledDashboard = styled.div`
         height: 75%;
         border: 0.2em solid #42e6a4;
         margin-bottom: 5%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        overflow-y:auto;
       }
       .directions {
         width: 100%;

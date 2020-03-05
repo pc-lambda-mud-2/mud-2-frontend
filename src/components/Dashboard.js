@@ -23,23 +23,25 @@ const Dashboard = props => {
 
   useEffect(() => {
     initializePlayer();
-  }, []);
+  }, [initializePlayerReducer]);
 
-  let loadingroom = "[]";
+  let loadingroom = [];
   const initialUser = initializePlayerReducer.initialize;
   let roomsData = roomsReducer?.rooms.rooms || loadingroom;
-  let parsedRooms = JSON.parse(roomsData);
+  let parsedRooms = roomsData;
   let directions = [];
   let editedRooms;
+  
   console.log(parsedRooms);
+  // parsedRooms = parsedRooms.slice(0,100);
   directions = parsedRooms.map((room, index) => {
     editedRooms = {
-      roomId: room.pk,
-      n_to: room.fields.n_to,
-      s_to: room.fields.s_to,
-      e_to: room.fields.e_to,
-      w_to: room.fields.w_to,
-      x: index + 1,
+      roomId: room.id,
+      n_to: room.n_to,
+      s_to: room.s_to,
+      e_to: room.e_to,
+      w_to: room.w_to,
+      x: index,
       y: 0
     };
     return editedRooms;
@@ -105,10 +107,11 @@ const Dashboard = props => {
                     borderTop: room.n_to,
                     borderLeft: room.w_to,
                     borderRight: room.e_to,
-                    fontSize:"1.5em",
-                    width:"7%",
-                    margin:"1%",
-                    textAlign:"center"
+                    fontSize: "1.5em",
+                    width: "7%",
+                    margin: "1%",
+                    textAlign: "center",
+                    fontFamily:"roboto"
                   }}
                 >
                   {room.roomId}
