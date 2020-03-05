@@ -23,7 +23,7 @@ const Dashboard = props => {
 
   useEffect(() => {
     initializePlayer();
-  }, [initializePlayerReducer]);
+  }, []);
 
   let loadingroom = [];
   const initialUser = initializePlayerReducer.initialize;
@@ -76,7 +76,17 @@ const Dashboard = props => {
 
     return rooms;
   });
-  console.log("*******!", initialUser, "!!!!!!move", move);
+  let currentRoom;
+  currentRoom = parsedRooms.find(room => room.title === initialUser.title);
+
+  console.log(
+    "*******!",
+    initialUser,
+    "!!!!!!move",
+    move,
+    "%%%%%",
+    currentRoom
+  );
 
   const handleMoveNorth = e => {
     e.preventDefault();
@@ -101,24 +111,23 @@ const Dashboard = props => {
         <div className="map-cont">
           <div className="map">
             <>
-            <Player/>
-            {directions.map(room => {
-              return (
-                <div
-                  key={room.roomId}
-                  style={{
-                    borderBottom: room.s_to,
-                    borderTop: room.n_to,
-                    borderLeft: room.w_to,
-                    borderRight: room.e_to,
-                    textAlign: "center",
-                    fontFamily: "roboto"
-                  }}
-                >
-                  {room.roomId}
-                </div>
-              );
-            })}
+              {directions.map(room => {
+                return (
+                  <div
+                    key={room.roomId}
+                    style={{
+                      borderBottom: room.s_to,
+                      borderTop: room.n_to,
+                      borderLeft: room.w_to,
+                      borderRight: room.e_to,
+                      textAlign: "center",
+                      fontFamily: "roboto"
+                    }}
+                  >
+                    {currentRoom.id === room.roomId ? <Player /> : room.roomId}
+                  </div>
+                );
+              })}
             </>
           </div>
           <div className="directions">
@@ -170,7 +179,7 @@ const Dashboard = props => {
           <div className="room-says">
             <h4>Room says:</h4>
             <h4>{initialUser.description}</h4>
-            <h4 style={{color:"white"}}>{move.error_msg}</h4>
+            <h4 style={{ color: "white" }}>{move.error_msg}</h4>
           </div>
         </div>
       </div>

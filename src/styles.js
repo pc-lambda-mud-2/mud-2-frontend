@@ -335,11 +335,11 @@ export const StyledDashboard = styled.div`
 `;
 
 export const Player = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background: #fcfcfc;
   border-radius: 50%;
-  position:absolute;
+  /* position:relative; */
   margin-left:2%;
   margin-top:2%;
 
