@@ -28,6 +28,8 @@ const UserOnboarding = props => {
       <h1>mud game</h1>
       <div className="form-cont">
         <div className="signup">
+          {(props.signUpReducer.newUser && props.signUpReducer.newUser.key) && 
+          <p style={{marginLeft: "30%"}}>Sign up successful, <br /> please log in</p>}
             <h1>signup</h1>
           <form>
             <input
