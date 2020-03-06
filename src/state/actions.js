@@ -2,13 +2,15 @@ import * as types from "./types";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+const baseURL = 'https://mud-2-backend-development-3.herokuapp.com'
+
 export const getRoomsError = error => {
   return { type: types.GET_ROOMS_ERROR, payload: error.message };
 };
 
 export const getRooms = () => dispatch => {
   axiosWithAuth()
-    .get("https://mud-2-backend-development-2.herokuapp.com/api/adv/rooms/")
+    .get(`${baseURL}/api/adv/rooms/`)
     .then(res => {
       dispatch({ type: types.GET_ROOMS, payload: res.data });
     })
@@ -24,7 +26,7 @@ export const moveNorthError = error => {
 export const moveNorth = directions => dispatch => {
   axiosWithAuth()
     .post(
-      "https://mud-2-backend-development-2.herokuapp.com/api/adv/move/",
+      `${baseURL}/api/adv/move/`,
       directions
     )
     .then(res => {
@@ -41,7 +43,7 @@ export const initializePlayerError = error => {
 
 export const initializePlayer = () => dispatch => {
   axiosWithAuth()
-    .get("https://mud-2-backend-development-2.herokuapp.com/api/adv/init/")
+    .get(`${baseURL}/api/adv/init/`)
     .then(res => {
       dispatch({ type: types.GET_INITIALIZE_PLAYER, payload: res.data });
     })
@@ -57,11 +59,12 @@ export const registrationError = error => {
 export const postRegister = (userDetails, props) => dispatch => {
   axios
     .post(
-      "https://mud-2-backend-development-2.herokuapp.com/api/registration/",
+      `${baseURL}/api/registration/`,
       userDetails
     )
     .then(res => {
       dispatch({ type: types.POST_SIGNUP, payload: res.data });
+      dispatch(postLogin(userDetails, props))
     })
     .catch(error => {
       dispatch(registrationError(error.message));
@@ -75,7 +78,7 @@ export const LoginError = error => {
 export const postLogin = (userDetails, props) => dispatch => {
   axios
     .post(
-      "https://mud-2-backend-development-2.herokuapp.com/api/login/",
+      `${baseURL}/api/login/`,
       userDetails
     )
     .then(res => {

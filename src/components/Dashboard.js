@@ -115,7 +115,7 @@ const Dashboard = props => {
       <div className="rooms-maps-cont">
         <div className="map-cont">
           <div className="map">
-            {directions.map(room => {
+            {directions && directions.map(room => {
               return (
                 <div
                   key={room.roomId}
